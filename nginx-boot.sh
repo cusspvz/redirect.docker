@@ -9,6 +9,7 @@ export NGINX_CONF=/etc/nginx/mushed.conf
 # Build config
 cat <<EOF > $NGINX_CONF
 user root;
+daemon off;
 
 events {
     worker_connections $WORKER_CONNECTIONS;
@@ -24,8 +25,9 @@ http {
 
 EOF
 
-cat $NGINX_CONF
+cat $NGINX_CONF;
 
-chown -R root:root /var/lib/nginx
+chown -R root:root /var/lib/nginx;
+mkdir -p /run/nginx;
 
-exec nginx -c $NGINX_CONF -g "daemon off;"
+exec nginx -c $NGINX_CONF

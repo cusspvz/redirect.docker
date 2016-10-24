@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ADD nginx-boot.sh /sbin/nginx-boot
+COPY nginx-boot.sh /sbin/nginx-boot
 
 RUN chmod +x /sbin/nginx-boot && \
     apk --update add nginx bash && \
