@@ -17,26 +17,13 @@ have your browser redirected to `https://www.google.com/any/path`.
 
 Adjust Dockerfile to override the defaults
 
+| Variable                | Description                                                         | Default         | Values                                                      |
+| ----------------------- | ------------------------------------------------------------------- | --------------- | ----------------------------------------------------------- |
+| HSTS                    | Toggles Https Strict Transport Security when it is NON ZERO         | `0`             |                                                             |
+| HSTS_INCLUDE_SUBDOMAINS | In case HSTS is on, this toggles the subdomains when it is NON ZERO | `0`             |                                                             |
+| HSTS_MAX_AGE            |                                                                     | `-31536000`     |                                                             |
+| WORKER_CONNECTIONS      |                                                                     | `1024`          |                                                             |
+| HTTP_PORT               |                                                                     | `80`            |                                                             |
+| REDIRECT                |                                                                     | `https://$host` |                                                             |
+| REDIRECT_TYPE           |                                                                     | `permanent`     | `redirect` (302 redirection), `permanent` (301 redirection) |
 
-### HSTS
-Defaults to: 0
-
-Toggles Https Strict Transport Security when it is NON ZERO
-
-
-### HSTS_INCLUDE_SUBDOMAINS
-Defaults to: 0
-
-In case HSTS is on, this toggles the subdomains when it is NON ZERO
-
-
-### WORKER_CONNECTIONS
-Defaults to: 1024
-
-
-### HTTP_PORT
-Defaults to: 80
-
-
-### REDIRECT
-Defaults to: https://$host
