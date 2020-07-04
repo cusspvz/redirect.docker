@@ -12,7 +12,7 @@ export HSTS_INCLUDE_SUBDOMAINS=${HSTS_INCLUDE_SUBDOMAINS:-0}
 
 # Build config
 cat <<EOF > $NGINX_CONF
-user root;
+user nginx;
 daemon off;
 
 events {
@@ -34,7 +34,7 @@ EOF
 
 cat $NGINX_CONF;
 
-chown -R root:root /var/lib/nginx;
+chown -R nginx:nginx /var/lib/nginx;
 mkdir -p /run/nginx;
 
 exec nginx -c $NGINX_CONF
